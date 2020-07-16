@@ -77,6 +77,32 @@
               </execution>
             </executions>
           </plugin>
+                 <plugin>
+            <groupId>org.jfrog.buildinfo</groupId>
+            <artifactId>artifactory-maven-plugin</artifactId>
+            <inherited>false</inherited>
+            <executions>
+                <execution>
+                    <id>build-info</id>
+                    <goals>
+                        <goal>publish</goal>
+                    </goals>
+                    <configuration>
+                        <deployProperties>
+                            <gradle>awesome</gradle>
+                            <review.team>qa</review.team>
+                        </deployProperties>
+                        <publisher>
+                            <contextUrl>https://localhost:8081</contextUrl>
+                            <username>admin</username>
+                            <password>Volume@123</password>
+                            <repoKey>libs-release-local</repoKey>
+                            <snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
+                        </publisher>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
         </plugins>
       </build>
     </profile>
